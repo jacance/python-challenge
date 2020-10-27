@@ -1,4 +1,5 @@
-# Your task is to create a Python script that analyzes the records to calculate each of the following:
+# This Python script analyzes the financial records found in budget_data.csv.
+
 
 # Import the os and csv modules
 import os
@@ -11,71 +12,42 @@ budgetcsv = os.path.join("resources/budget_data.csv")
 with open(budgetcsv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    next(csvreader) #skip header row
+    next(csvreader) # Skip header row
 
-
-# The total number of months included in the dataset
-
-    # Count solution and offset the index starting at 0. Potentially use pie/candy examples
+    # Create dictionary to hold greatest profit increase and decrease
     results = {
-        "max":[-999999999, ""],
+        "max":[-999999999, ""], 
         "min":[999999999, ""]
     }
-    # max = [0, ""]
-    # max = {
-    #     "profit": 0,
-    #     "month": ""
-    # }
-    # min = {
-    #     "profit": 0,
-    #     "month": ""
-    # }
-    # max_inc = 0
-    # max_inc_month = ""
-
+ 
+    # Set variables and counts to 0
     month_count = 0
     total = 0
     average_change = 0.00
     
     for x in csvreader:
         month_count = month_count + 1
-        profit = int(x[1])
-        total = total + profit
+        profit = int(x[1]) # Profit equals value in second column
+        total = total + profit # Sum all values in second column for total profit 
+
         # Find greatest increase in profits
-        if profit > results["max"][0]:
+        if profit > results["max"][0]: # Maximum profit value is added to results dicitonary
             results["max"][0] = profit # Value
             results["max"][1] = x[0] # Month
+
         # Find greatest decrease in profits
-        if profit < results["min"][0]:
+        if profit < results["min"][0]: # Minimum profit value is added to results dicitonary
             results["min"][0] = profit # Value
             results["min"][1] = x[0] # Month
-        average_change = total / month_count
+        average_change = total / month_count # Divide total profit by months to get average change
+        average_change_rounded = round(average_change, 2) # Round average to two decimal places
 
-# print(average_change)    
-# print(results)
 
+# Print results
 print(f"Financial Analysis")
 print(f"----------------------------")
 print(f"Total Months: {month_count}")
 print(f"Total: ${total}")
-print(f"Average  Change: ${average_change}")
-print(f"Greatest Increase in Profits: {results['max'][1]}, ${results['max'][0]}") #Greatest Increase in profits
-print(f"Greatest Decrease in Profits: {results['min'][1]}, ${results['min'][0]}") #Greatest Decrease in profits
-
-# The net total amount of "Profit/Losses" over the entire period
-    # set variable for pnl = 0
-    # pnl = 0
-    # for x in 
-    # add second column up: pnl = pnl + column(i)
-
-# The average of the changes in "Profit/Losses" over the entire period
-    #
-
-
-# The greatest increase in profits (date and amount) over the entire period
-    #write function for max (biggest positive)
-
-# The greatest decrease in losses (date and amount) over the entire period
-    #write function for min (smallest negative)
-
-
+print(f"Average  Change: ${average_change_rounded}")
+print(f"Greatest Increase in Profits: {results['max'][1]}, ${results['max'][0]}") # Greatest Increase in profits month and value
+print(f"Greatest Decrease in Profits: {results['min'][1]}, ${results['min'][0]}") # Greatest Decrease in profits month and value

@@ -70,8 +70,6 @@ total = 0
             results["max"][1] = x[0]
             # print(x)
 
-    print (results)
-    print(f"There are {month_count} months.")
 
 print(f"Financial Analysis")
 print(f"----------------------------")
