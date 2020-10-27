@@ -14,45 +14,64 @@ with open(budgetcsv, newline="") as csvfile:
     next(csvreader) #skip header row
 
 
-# The total number of months included in the dataset
+# # The total number of months included in the dataset
 
-    # Count solution and offset the index starting at 0. Potentially use pie/candy examples
-    results = {
-        "max":[-999999999, ""],
-        "min":[999999999, ""]
-    }
-    # max = [0, ""]
-    # max = {
-    #     "profit": 0,
-    #     "month": ""
-    # }
-    # min = {
-    #     "profit": 0,
-    #     "month": ""
-    # }
-    # max_inc = 0
-    # max_inc_month = ""
+# # Count solution and offset the index starting at 0. Potentially use pie/candy examples
 
-    month_count = 0
-    total = 0
-    average_change = 0.00
-    
+# Can use regular variables
+# month_count = 0
+# total = 0
+# max_value = -999999999
+# max_month = ""
+# min_value = 999999999
+# min_month = ""
+# total_change = 0
+# last_profit = 0 #will be profit from the last month, you will take value of the profit of this month, subtract last profit from it, that's how you get total
+           
+# if month_count ==0:
+#     last_profit = profit
+# else:
+#     calculate the change
+#     update hte last_profit
+
+#Can use a dictionary
+results = {
+    "max":[-999999999, ""], #if the company is losing, you need to have maximum as a negative value so that 0 isn't cutoff
+    "min":[999999999, ""]
+}
+max = {
+    "profit": 0,
+    "month": ""
+}
+min = {
+    "profit": 0,
+    "month": ""
+}
+
+
+# #Can use a list
+# max = [0, ""]
+
+# # max_inc = 0
+# max_inc_month = ""
+
+# # Can use regular variables
+
+month_count = 0
+total = 0
+
     for x in csvreader:
         month_count = month_count + 1
+        month = x[0])
         profit = int(x[1])
         total = total + profit
-        # Find greatest increase in profits
         if profit > results["max"][0]:
-            results["max"][0] = profit # Value
-            results["max"][1] = x[0] # Month
-        # Find greatest decrease in profits
-        if profit < results["min"][0]:
-            results["min"][0] = profit # Value
-            results["min"][1] = x[0] # Month
-        average_change = total / month_count
+            results["max"][0] = profit
+            results["max"][1] = x[0]
+            # print(x)
 
-# print(average_change)    
-# print(results)
+    print (results)
+    print(f"There are {month_count} months.")
 
 print(f"Financial Analysis")
 print(f"----------------------------")
