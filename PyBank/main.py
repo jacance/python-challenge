@@ -58,9 +58,9 @@ print(f"Financial Analysis")
 print(f"----------------------------")
 print(f"Total Months: {month_count}")
 print(f"Total: ${total}")
-print(f"Average  Change: $-2315.12")
-print(f"Greatest Increase in Profits: Feb-2012 ($1926159)")
-print(f"Greatest Decrease in Profits: Sep-2013 ($-2196167)")
+print(f"Average  Change: ${average_change}")
+print(f"Greatest Increase in Profits: {results['max'][1]}, ${results['max'][0]}") #Greatest Increase in profits
+print(f"Greatest Decrease in Profits: {results['min'][1]}, ${results['min'][0]}") #Greatest Decrease in profits
 
 # The net total amount of "Profit/Losses" over the entire period
     # set variable for pnl = 0
