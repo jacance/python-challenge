@@ -48,18 +48,20 @@ with open(electioncsvpath, newline="") as electioncsv:
             vote_index[3] += 1
 
 
-
-
-
+percentage = [0, 0, 0, 0]
+percentage[0] = vote_index[0]/(votes)
+percentage[1] = vote_index[1]/(votes)
+percentage[2] = vote_index[2]/(votes)
+percentage[3] = vote_index[3]/(votes)
 
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {votes}") # The total number of votes cast
 print("-------------------------")
-print(candidates_list[0],":",) #results['percent'][0], results['all_votes'][0])
-print(candidates_list[1],":",) #results['percent'][1], results['all_votes'][1])
-print(candidates_list[2],":",) #results['percent'][2], results['all_votes'][2])
-print(candidates_list[3],":",) #results['percent'][3], results['all_votes'][3])
+print(f'{candidates_list[0]}: {vote_index[0]}, {percentage[0]}'),
+print(f'{candidates_list[1]}: {vote_index[1]}, {percentage[1]}'),
+print(f'{candidates_list[2]}: {vote_index[2]}, {percentage[2]}'),
+print(f'{candidates_list[3]}: {vote_index[3]}, {percentage[3]}'),
 print("-------------------------")
 print("Winner: _______")
 print("-------------------------")
