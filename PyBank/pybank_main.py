@@ -49,5 +49,5 @@ print(f"----------------------------")
 print(f"Total Months: {month_count}")
 print(f"Total: ${total}")
 print(f"Average  Change: ${average_change_rounded}")
-print(f"Greatest Increase in Profits: {results['max'][1]}, ${results['max'][0]}") # Greatest Increase in profits month and value
-print(f"Greatest Decrease in Profits: {results['min'][1]}, ${results['min'][0]}") # Greatest Decrease in profits month and value
+print(f"Greatest Increase in Profits: {results['max'][1]} (${results['max'][0]})") # Greatest Increase in profits month and value
+print(f"Greatest Decrease in Profits: {results['min'][1]} (${results['min'][0]})") # Greatest Decrease in profits month and value

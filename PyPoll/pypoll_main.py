@@ -42,17 +42,25 @@ with open(electioncsvpath, newline="") as electioncsv:
             vote_index[0] += 1
         if all_votes[1] in row[2]:
             vote_index[1] += 1
-        if all_votes[2] in row[2]:
+        if all_votes[2] in row[2]: # Producing duplicate
             vote_index[2] += 1
-        if all_votes[3] in row[2]:
+        if all_votes[3] in row[2]: # Producing duplicate
             vote_index[3] += 1
 
 
+
 percentage = [0, 0, 0, 0]
-percentage[0] = vote_index[0]/(votes)
+percentage[0] = (vote_index[0]/(votes) * 100)
 percentage[1] = vote_index[1]/(votes)
 percentage[2] = vote_index[2]/(votes)
 percentage[3] = vote_index[3]/(votes)
+
+# # Function for percentage
+# def finalpercentage(x):
+#     percentage[x] = (vote_index[x]/(votes)
+#     percentage[x] * 100
+    
+
 
 print("Election Results")
 print("-------------------------")
@@ -60,8 +68,8 @@ print(f"Total Votes: {votes}") # The total number of votes cast
 print("-------------------------")
 print(f'{candidates_list[0]}: {vote_index[0]}, {percentage[0]}'),
 print(f'{candidates_list[1]}: {vote_index[1]}, {percentage[1]}'),
-print(f'{candidates_list[2]}: {vote_index[2]}, {percentage[2]}'),
-print(f'{candidates_list[3]}: {vote_index[3]}, {percentage[3]}'),
+print(f'{candidates_list[2]}: {vote_index[2]}, {percentage[2]}'), # Duplicate
+print(f'{candidates_list[3]}: {vote_index[3]}, {percentage[3]}'), # Duplicate
 print("-------------------------")
-print("Winner: _______")
+print(f'Winner: {max(vote_index)}') # Needs to be name using key value pair (dictionary)
 print("-------------------------")
