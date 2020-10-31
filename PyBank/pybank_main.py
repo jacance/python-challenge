@@ -40,14 +40,13 @@ with open(budgetcsv, newline="") as csvfile:
             results["min"][0] = profit # Value
             results["min"][1] = x[0] # Month
         average_change = total / month_count # Divide total profit by months to get average change
-        average_change_rounded = round(average_change, 2) # Round average to two decimal places
-
+       
 
 # Print results
 print(f"Financial Analysis")
 print(f"----------------------------")
 print(f"Total Months: {month_count}")
 print(f"Total: ${total}")
-print(f"Average  Change: ${average_change_rounded}")
+print(f"Average  Change: ${average_change:,.2f}")
 print(f"Greatest Increase in Profits: {results['max'][1]} (${results['max'][0]})") # Greatest Increase in profits month and value
 print(f"Greatest Decrease in Profits: {results['min'][1]} (${results['min'][0]})") # Greatest Decrease in profits month and value
