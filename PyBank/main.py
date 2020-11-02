@@ -41,7 +41,6 @@ with open(budgetcsv, newline="") as csvfile:
             results["min"][1] = x[0] # Month
         average_change = total / month_count # Divide total profit by months to get average change
        
-
 # Print results
 print(f"Financial Analysis")
 print(f"----------------------------")
@@ -50,3 +49,16 @@ print(f"Total: ${total:,.2f}")
 print(f"Average  Change: ${average_change:,.2f}")
 print(f"Greatest Increase in Profits: {results['max'][1]} (${results['max'][0]})") # Greatest Increase in profits month and value
 print(f"Greatest Decrease in Profits: {results['min'][1]} (${results['min'][0]})") # Greatest Decrease in profits month and value
+
+# Print results as txt file
+with open("Analysis/pybank_output.txt", "a") as f:
+
+    print(f"Financial Analysis", file=f)
+    print(f"----------------------------", file=f)
+    print(f"Total Months: {month_count}", file=f)
+    print(f"Total: ${total:,.2f}", file=f)
+    print(f"Average  Change: ${average_change:,.2f}", file=f)
+    print(f"Greatest Increase in Profits: {results['max'][1]} (${results['max'][0]})", file=f) 
+    print(f"Greatest Decrease in Profits: {results['min'][1]} (${results['min'][0]})", file=f) 
+
+f.close()

@@ -43,3 +43,17 @@ for kv in sorted_candidate.items(): # For loop to print candidates, votes, and p
 print("-------------------------")
 print('Winner:', (list(sorted_candidate.keys())[0])) # Prints name of candidate with most votes
 print("-------------------------")
+
+# Print results to txt file
+with open("Analysis/pypoll_output.txt", "a") as f:
+    print("Election Results", file=f)
+    print("-------------------------", file=f)
+    print(f"Total Votes: {votes}", file=f) # The total number of votes cast
+    print("-------------------------", file=f)
+    for kv in sorted_candidate.items(): # For loop to print candidates, votes, and percentage of votes
+        print(f'{kv[0]}: {kv[1]}, {percentfunction(kv[1]):,.2f}%', file=f)
+    print("-------------------------", file=f)
+    print('Winner:', (list(sorted_candidate.keys())[0]), file=f) # Prints name of candidate with most votes
+    print("-------------------------", file=f)
+
+f.close()
