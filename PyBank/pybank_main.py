@@ -46,7 +46,7 @@ with open(budgetcsv, newline="") as csvfile:
 print(f"Financial Analysis")
 print(f"----------------------------")
 print(f"Total Months: {month_count}")
-print(f"Total: ${total}")
+print(f"Total: ${total:,.2f}")
 print(f"Average  Change: ${average_change:,.2f}")
 print(f"Greatest Increase in Profits: {results['max'][1]} (${results['max'][0]})") # Greatest Increase in profits month and value
 print(f"Greatest Decrease in Profits: {results['min'][1]} (${results['min'][0]})") # Greatest Decrease in profits month and value
